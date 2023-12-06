@@ -1,0 +1,3 @@
+class ConsoleUI:
+
+  pass
