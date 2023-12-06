@@ -6,4 +6,5 @@ class ImageAnalyzer:
     """
     Analyze an image and return a dictionary of its properties.
     """
-    return {'dimensions': image.size}
+    return {'dimensions': image.size,
+            'color_mode': image.mode}
