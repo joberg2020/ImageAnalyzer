@@ -6,4 +6,4 @@ class ImageAnalyzer:
     """
     Analyze an image and return a dictionary of its properties.
     """
-    pass
+    return {'dimensions': image.size}
