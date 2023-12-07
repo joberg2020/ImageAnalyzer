@@ -57,3 +57,21 @@ def test_console_ui_start_should_call_image_loader_load_image_with_url_when_user
   mock_input.assert_called_with('Enter the URL of the image you want to analyze: ')
   sut.image_loader.load_from_url.assert_called_once_with(expected_url)
   mock_print.assert_called_once_with(expected_exit_message)
+
+
+def test_console_ui_prints_properties_of_image_when_user_enters_url(sut, mock_image_analyzer):
+  # Arrange
+  mock_image_analyzer.analyze_image.return_value = {
+    'dimensions': (100, 100),
+     'color_mode': 'RGB'
+     }
+  mocked_url = 'http://somethingsomething.com/image.jpg'
+
+  with patch('builtins.input', side_effect=[mocked_url, 'q']), patch('builtins.print') as mock_print:
+    sut.start()
+  
+  # Assert
+  mock_image_analyzer.analyze_image.assert_called_once()
+
+  mock_print.assert_any_call("Image properties: {'dimensions': (100, 100), 'color_mode': 'RGB'}")
+  
