@@ -22,6 +22,8 @@ class ConsoleUI:
         break
       try: 
         image = self.image_loader.load_from_url(url)
+        image_properties = self.image_analyzer.analyze_image(image)
+        print(f'Image properties: {image_properties}')
 
       except Exception as e:
         print(f'Error: {e}')
