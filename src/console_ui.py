@@ -1,4 +1,15 @@
+from src.image_analyzer import ImageAnalyzer
+from src.image_loader import ImageLoader
+
+
 class ConsoleUI:
+
+  def __init__(self, image_loader: ImageLoader, image_analyzer: ImageAnalyzer) -> None:
+    """
+    Creates a new console instance.
+    """
+    self.image_loader = image_loader
+    self.image_analyzer = image_analyzer
 
   def start(self) -> None:
     """

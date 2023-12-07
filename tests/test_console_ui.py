@@ -3,7 +3,9 @@ from unittest.mock import Mock, patch
 
 def test_console_ui_ask_for_url_should_ask_for_url():
   # Arrange
-  sut = ConsoleUI()
+  mock_image_loader = Mock()
+  mock_image_analyzer = Mock()
+  sut = ConsoleUI(mock_image_loader, mock_image_analyzer)
   expected = 'Enter the URL of the image you want to analyze: '
 
   # Act
@@ -16,7 +18,9 @@ def test_console_ui_ask_for_url_should_ask_for_url():
 
 def test_console_ui_start_should_ask_for_url_and_return_exitmessage_when_user_enters_q():
   # Arrange
-  sut = ConsoleUI()
+  mock_image_loader = Mock()
+  mock_image_analyzer = Mock()
+  sut = ConsoleUI(mock_image_loader, mock_image_analyzer)
   expected_exit_message = 'Program exits. Bye!'
 
   # Act
