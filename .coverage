@@ -1,0 +1,12 @@
+Name                           Stmts   Miss  Cover
+--------------------------------------------------
+src\__init__.py                    0      0   100%
+src\console_ui.py                 21      2    90%
+src\image_analyzer.py              4      0   100%
+src\image_loader.py               11      0   100%
+tests\__init__.py                  0      0   100%
+tests\test_console_ui.py          42      0   100%
+tests\test_image_analyzer.py      20      0   100%
+tests\test_image_loader.py        37      0   100%
+--------------------------------------------------
+TOTAL                            135      2    99%
