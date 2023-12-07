@@ -16,9 +16,15 @@ class ConsoleUI:
     Start the console UI.
     """
     exit_message = 'Program exits. Bye!'
-    url = self.ask_for_url()
-    while url != 'q':
+    while True:
       url = self.ask_for_url()
+      if url == 'q':
+        break
+      try: 
+        image = self.image_loader.load_from_url(url)
+
+      except Exception as e:
+        print(f'Error: {e}')
     print(exit_message)
 
   def ask_for_url(self) -> str:
