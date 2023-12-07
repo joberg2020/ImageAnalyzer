@@ -43,3 +43,17 @@ def test_console_ui_constructor_should_recive_image_loader_and_image_analyzer(su
   # Assert
   assert isinstance(sut.image_loader, Mock)
   assert isinstance(sut.image_analyzer, Mock)
+
+def test_console_ui_start_should_call_image_loader_load_image_with_url_when_user_enters_url(sut):
+  # Arrange
+  expected_url = 'http://somethingsomething.com/image.jpg'
+  expected_exit_message = 'Program exits. Bye!'
+
+  # Act
+  with patch('builtins.input', side_effect=[expected_url, 'q']) as mock_input, patch('builtins.print') as mock_print:
+    sut.start()
+  
+  # Assert
+  mock_input.assert_called_with('Enter the URL of the image you want to analyze: ')
+  sut.image_loader.load_from_url.assert_called_once_with(expected_url)
+  mock_print.assert_called_once_with(expected_exit_message)
